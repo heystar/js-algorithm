@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /**
+    * @param {string} s
+    * @return {boolean}
+    */
+    var isValid = function(s) {
+      // 存放开闭括号对象
+      let mapping = {
+        ')' : '(',
+        '}' : '{',
+        ']' : '['
+      }
+      // 存放开括号栈
+      let charStack = [];
+      // 遍历字符
+      for(var i = 0; i<s.length; i++){
+        // 当前字符
+        let curChar = s.charAt(i);
+        // 栈顶元素
+        let topElement;
+        // 判断是否为闭括号
+        if(mapping[curChar] !== undefined){
+          // 获取栈顶元素
+            topElement = (charStack.length===0) ? '#' : charStack.pop();
+            if(topElement !== mapping[curChar])
+                return false;
+        }else{
+          // 开括号推入栈
+            charStack.push(curChar);
+        }
+      }
+      return charStack.length === 0;
+  };
+  // var isValid = function(s) {
+  //   // 存放开括号
+  //   var stack = []
+  //   for (var i = 0; i < s.length; i++) {
+  //     // 当前字符
+  //     var curChar = s.charAt(i)
+  //     // 判断是否是开括号
+  //     if(curChar === '(' || curChar === '[' || curChar === '{') {
+  //       // 是开括号就入栈
+  //       stack.push(curChar)
+  //     } else {
+  //       // 非开括号
+
+  //       // 判断栈里是否有数据，没有数据直接返回
+  //       if(stack.length === 0)
+  //         return false
+        
+  //       //有数据，获取栈顶元素并判断闭括号
+  //       var topChar = stack.pop()
+
+  //       if(topChar === '(' && curChar !== ')')
+  //         return false
+        
+  //       if(topChar === '[' && curChar !== ']')
+  //         return false
+        
+  //       if(topChar === '{' && curChar !== '}')
+  //         return false
+  //     }
+  //   }
+  //   return stack.length === 0
+  // }
+  console.log(isValid('()[]{}')) // true
+  console.log(isValid('{[]}')) // true
+  console.log(isValid('(})')) // false
+  </script>
+</body>
+</html>

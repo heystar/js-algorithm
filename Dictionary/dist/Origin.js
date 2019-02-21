@@ -1,0 +1,20 @@
+'use strict';
+
+var hash = new Map();
+hash.set('Gandalf', 'gandalf@email.com');
+hash.set('John', 'johnsnow@email.com');
+hash.set('Tyrion', 'tyrion@email.com');
+hash.set('Aaron', 'aaron@email.com');
+hash.set('Donnie', 'donnie@email.com');
+hash.set('Ana', 'ana@email.com');
+hash.set('Jonathan', 'jonathan@email.com');
+hash.set('Jamie', 'jamie@email.com');
+hash.set('Sue', 'sue@email.com');
+hash.set('Mindy', 'mindy@email.com');
+hash.set('Paul', 'paul@email.com');
+hash.set('Nathan', 'nathan@email.com');
+console.log(hash.has('Ana'));
+console.log(hash.size);
+console.log(hash.keys());
+console.log(hash.values());
+console.log(hash.get('Paul'));
